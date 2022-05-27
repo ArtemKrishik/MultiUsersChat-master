@@ -20,18 +20,16 @@ public class ViewGuiServer {
         this.server = server;
     }
 
-    //метод инициализации графического интерфейса приложения сервера
     protected void initFrameServer() {
         dialogWindow.setEditable(false);
-        dialogWindow.setLineWrap(true);  //автоматический перенос строки в JTextArea
+        dialogWindow.setLineWrap(true);
         frame.add(new JScrollPane(dialogWindow), BorderLayout.CENTER);
         panelButtons.add(buttonStartServer);
         panelButtons.add(buttonStopServer);
         frame.add(panelButtons, BorderLayout.SOUTH);
         frame.pack();
-        frame.setLocationRelativeTo(null); // при запуске отображает окно по центру экрана
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        //класс обработки события при закрытии окна приложения Сервера
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -56,12 +54,10 @@ public class ViewGuiServer {
         });
     }
 
-    //метод который добавляет в текстовое окно новое сообщение
     public void refreshDialogWindowServer(String serviceMessage) {
         dialogWindow.append(serviceMessage);
     }
 
-    //метод вызывающий диалоговое окно для ввода порта сервера
     protected int getPortFromOptionPane() {
         while (true) {
             String port = JOptionPane.showInputDialog(
