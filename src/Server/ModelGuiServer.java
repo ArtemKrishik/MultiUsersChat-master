@@ -6,9 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModelGuiServer {
-    //модель хранит карту со всеми подключившимися клиентами ключ - имя клиента, значение - объект connecton
-    private Map<String, Connection> allUsersMultiChat = new HashMap<>();
 
+    private Map<String, Connection> allUsersMultiChat = new HashMap<>();
 
     protected Map<String, Connection> getAllUsersMultiChat() {
         return allUsersMultiChat;

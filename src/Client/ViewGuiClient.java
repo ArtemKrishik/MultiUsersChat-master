@@ -22,7 +22,6 @@ public class ViewGuiClient {
         this.client = client;
     }
 
-    //метод, инициализирующий графический интерфейс клиентского приложения
     protected void initFrameClient() {
         messages.setEditable(false);
         users.setEditable(false);
@@ -33,9 +32,8 @@ public class ViewGuiClient {
         panel.add(buttonDisable);
         frame.add(panel, BorderLayout.SOUTH);
         frame.pack();
-        frame.setLocationRelativeTo(null); // при запуске отображает окно по центру экрана
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        //класс обработки события при закрытии окна приложения Сервера
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -71,7 +69,6 @@ public class ViewGuiClient {
         messages.append(text);
     }
 
-    //метод обновляющий списо имен подлючившихся пользователей
     protected void refreshListUsers(Set<String> listUsers) {
         users.setText("");
         if (client.isConnect()) {
@@ -83,7 +80,6 @@ public class ViewGuiClient {
         }
     }
 
-    //вызывает окно для ввода адреса сервера
     protected String getServerAddressFromOptionPane() {
         while (true) {
             String addressServer = JOptionPane.showInputDialog(
@@ -95,7 +91,6 @@ public class ViewGuiClient {
         }
     }
 
-    //вызывает окно для ввода порта сервера
     protected int getPortServerFromOptionPane() {
         while (true) {
             String port = JOptionPane.showInputDialog(
@@ -114,7 +109,6 @@ public class ViewGuiClient {
         }
     }
 
-    //вызывает окна для ввода имени пользователя
     protected String getNameUser() {
         return JOptionPane.showInputDialog(
                 frame, "Введите имя пользователя:",
@@ -123,7 +117,6 @@ public class ViewGuiClient {
         );
     }
 
-    //вызывает окно ошибки с заданным текстом
     protected void errorDialogWindow(String text) {
         JOptionPane.showMessageDialog(
                 frame, text,
